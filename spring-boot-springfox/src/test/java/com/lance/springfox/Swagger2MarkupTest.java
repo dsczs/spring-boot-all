@@ -1,10 +1,7 @@
 package com.lance.springfox;
 
-import java.io.BufferedWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
+import com.lance.springfox.common.SwaggerConfig;
+import io.github.robwin.markup.builder.MarkupLanguage;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -21,20 +18,21 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import com.lance.springfox.common.SwaggerConfig;
-
-import io.github.robwin.markup.builder.MarkupLanguage;
 import springfox.documentation.staticdocs.Swagger2MarkupResultHandler;
+
+import java.io.BufferedWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes={SimpleApplication.class, SwaggerConfig.class})
+@SpringBootTest(classes = {SimpleApplication.class, SwaggerConfig.class})
 public class Swagger2MarkupTest {
-	@Autowired
+    @Autowired
     private WebApplicationContext context;
     private MockMvc mockMvc;
-    
+
     @Before
     public void setupMockMvc() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
@@ -42,6 +40,7 @@ public class Swagger2MarkupTest {
 
     /**
      * 生成AsciiDoc文件
+     *
      * @throws Exception
      */
     @Test
@@ -55,6 +54,7 @@ public class Swagger2MarkupTest {
 
     /**
      * 生成MarkDown文件
+     *
      * @throws Exception
      */
     @Test
@@ -63,12 +63,13 @@ public class Swagger2MarkupTest {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/v2/api-docs?group=Admin API")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(Swagger2MarkupResultHandler.outputDirectory("src/docs/markdown/generated")
-                    .withMarkupLanguage(MarkupLanguage.MARKDOWN).build())
+                        .withMarkupLanguage(MarkupLanguage.MARKDOWN).build())
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
-    
+
     /**
      * 生成Swagger.json
+     *
      * @throws Exception
      */
     @Test
@@ -79,11 +80,11 @@ public class Swagger2MarkupTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
 
-        
+
         MockHttpServletResponse response = mvcResult.getResponse();
         String swaggerJson = response.getContentAsString();
         Files.createDirectories(Paths.get(outputDir));
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(outputDir, "swagger1.json"), StandardCharsets.UTF_8)){
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(outputDir, "swagger1.json"), StandardCharsets.UTF_8)) {
             writer.write(swaggerJson);
         }
     }

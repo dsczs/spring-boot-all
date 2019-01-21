@@ -1,9 +1,7 @@
 package com.lance.jpa.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import com.alibaba.fastjson.annotation.JSONField;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -13,70 +11,70 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.alibaba.fastjson.annotation.JSONField;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name="t_teacher")
+@Table(name = "t_teacher")
 public class Teacher implements Serializable {
-	private static final long serialVersionUID = 9181998751400657281L;
+    private static final long serialVersionUID = 9181998751400657281L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
-	
-	private String name;
-	
-	private String sex;
-	
-	@JSONField(format="yyyy-MM-dd")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date createTime;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="t_teacher_student")
-	private Set<Student> students = new HashSet<Student>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    private String name;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private String sex;
 
-	public String getName() {
-		return name;
-	}
+    @JSONField(format = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createTime;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "t_teacher_student")
+    private Set<Student> students = new HashSet<Student>();
 
-	public String getSex() {
-		return sex;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Set<Student> getStudents() {
-		return students;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public void setStudents(Set<Student> students) {
-		this.students = students;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 
 }

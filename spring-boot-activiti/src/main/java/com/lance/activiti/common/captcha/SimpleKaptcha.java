@@ -6,10 +6,11 @@ public class SimpleKaptcha extends AbstractBaseKaptcha {
 
     /**
      * 创建验证码属性配置
-     * @author lance
-     * @since 2016年11月5日下午11:00:55
-     * @see com.google.code.kaptcha.Constants
+     *
      * @return
+     * @author lance
+     * @see com.google.code.kaptcha.Constants
+     * @since 2016年11月5日下午11:00:55
      */
     @Override
     public Properties getProperties() {

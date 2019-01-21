@@ -50,10 +50,10 @@
             diskExpiryThreadIntervalSeconds="120"/>
 
     <!--<cache-->
-            <!--name="org.hibernate.cache.StandardQueryCache"-->
-            <!--maxEntriesLocalHeap="5"-->
-            <!--eternal="false"-->
-            <!--timeToLiveSeconds="120"/>-->
+    <!--name="org.hibernate.cache.StandardQueryCache"-->
+    <!--maxEntriesLocalHeap="5"-->
+    <!--eternal="false"-->
+    <!--timeToLiveSeconds="120"/>-->
     <!--<persistence strategy="localTempSwap"/>-->
 
     <!-- See http://ehcache.sourceforge.net/documentation/#mozTocId258426 for how to configure caching for your objects -->

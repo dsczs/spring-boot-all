@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SystemIndexController {
 
-	@RequestMapping("system/admin/index")
-	public String index() {
-		return "system/index.jsp";
-	}
+    @RequestMapping("system/admin/index")
+    public String index() {
+        return "system/index.jsp";
+    }
 }

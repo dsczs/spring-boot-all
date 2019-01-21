@@ -1,9 +1,8 @@
 package com.lance.repository;
 
+import com.lance.entity.BlogEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.lance.entity.BlogEntity;
-
-public interface BlogRepository extends JpaRepository<BlogEntity, Long>{
+public interface BlogRepository extends JpaRepository<BlogEntity, Long> {
 
 }

@@ -1,9 +1,8 @@
 package com.lance.querydsl.repository;
 
+import com.lance.querydsl.entity.HotelEntity;
 import org.springframework.data.repository.Repository;
 
-import com.lance.querydsl.entity.HotelEntity;
-
-public interface HotelRepository extends Repository<HotelEntity, Long>{
+public interface HotelRepository extends Repository<HotelEntity, Long> {
 
 }

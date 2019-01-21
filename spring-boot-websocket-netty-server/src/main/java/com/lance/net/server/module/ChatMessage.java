@@ -1,65 +1,65 @@
 package com.lance.net.server.module;
 
-import java.util.Date;
-import java.util.Map;
-
 import com.alibaba.fastjson.annotation.JSONField;
 import com.lance.net.server.common.ChatConstants;
 
+import java.util.Date;
+import java.util.Map;
+
 public class ChatMessage {
-	//发送消息则
-	private UserInfo from;
-	
-	//发送内容
-	private String message;
-	
-	//接收者列表
-	private Map<String, UserInfo> to;
-	
-	//发送时间
-	@JSONField(format="yyyy-MM-dd HH:mm:ss")
-	private Date createTime;
-	
-	public ChatMessage() {
-		
-	}
-	
-	public ChatMessage(UserInfo from,String message) {
-		this.from = from;
-		this.message = message;
-		this.to = ChatConstants.onlines;
-		this.createTime = new Date();
-	}
+    //发送消息则
+    private UserInfo from;
 
-	public String getMessage() {
-		return message;
-	}
+    //发送内容
+    private String message;
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    //接收者列表
+    private Map<String, UserInfo> to;
 
-	public UserInfo getFrom() {
-		return from;
-	}
+    //发送时间
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
 
-	public void setFrom(UserInfo from) {
-		this.from = from;
-	}
+    public ChatMessage() {
 
-	public Map<String, UserInfo> getTo() {
-		return to;
-	}
+    }
 
-	public void setTo(Map<String, UserInfo> to) {
-		this.to = to;
-	}
+    public ChatMessage(UserInfo from, String message) {
+        this.from = from;
+        this.message = message;
+        this.to = ChatConstants.onlines;
+        this.createTime = new Date();
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public UserInfo getFrom() {
+        return from;
+    }
+
+    public void setFrom(UserInfo from) {
+        this.from = from;
+    }
+
+    public Map<String, UserInfo> getTo() {
+        return to;
+    }
+
+    public void setTo(Map<String, UserInfo> to) {
+        this.to = to;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

@@ -11,32 +11,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class IndexController {
-	@Autowired
-	private SimpMessagingTemplate messagingTemplate;
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
 
-	/**
-	 * Index
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = { "", "/", "index" })
-	public String index() {
-		return "index.jsp";
-	}
+    /**
+     * Index
+     *
+     * @return
+     */
+    @RequestMapping(value = {"", "/", "index"})
+    public String index() {
+        return "index.jsp";
+    }
 
-	@RequestMapping("chat")
-	public String chat() {
-		return "chat.jsp";
-	}
+    @RequestMapping("chat")
+    public String chat() {
+        return "chat.jsp";
+    }
 
-	/**
-	 * 发送消息
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
-	public ResponseEntity<?> sendMessage() {
-		messagingTemplate.convertAndSend("/queue/notify", "test");
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+    /**
+     * 发送消息
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
+    public ResponseEntity<?> sendMessage() {
+        messagingTemplate.convertAndSend("/queue/notify", "test");
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

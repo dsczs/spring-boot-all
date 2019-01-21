@@ -11,7 +11,7 @@
             overflowToDisk="false"
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="120"
-            />
+    />
 
     <cache name="shiro-activeSessionCache"
            maxElementsInMemory="10000"

@@ -7,10 +7,10 @@ import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
 @MapperScan("com.lance.activiti.mapper")
-@PropertySource(value="classpath:common.properties")
+@PropertySource(value = "classpath:common.properties")
 public class SimpleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SimpleApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SimpleApplication.class, args);
+    }
 }

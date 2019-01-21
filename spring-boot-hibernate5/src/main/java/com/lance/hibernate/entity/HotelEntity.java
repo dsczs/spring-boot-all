@@ -1,6 +1,6 @@
 package com.lance.hibernate.entity;
 
-import java.io.Serializable;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,66 +9,65 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.NaturalId;
+import java.io.Serializable;
 
 @Entity
-@Table(name="t_hotel")
+@Table(name = "t_hotel")
 public class HotelEntity implements Serializable {
-	private static final long serialVersionUID = -6355579263029117475L;
+    private static final long serialVersionUID = -6355579263029117475L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@ManyToOne(optional = false)
-	@NaturalId
-	private CityEntity city;
+    @ManyToOne(optional = false)
+    @NaturalId
+    private CityEntity city;
 
-	@Column(nullable = false)
-	@NaturalId
-	private String name;
+    @Column(nullable = false)
+    @NaturalId
+    private String name;
 
-	@Column(nullable = false)
-	private String address;
-	
-	protected HotelEntity() {
-	}
+    @Column(nullable = false)
+    private String address;
 
-	public HotelEntity(CityEntity city, String name) {
-		this.city = city;
-		this.name = name;
-	}
+    protected HotelEntity() {
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public HotelEntity(CityEntity city, String name) {
+        this.city = city;
+        this.name = name;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public CityEntity getCity() {
-		return city;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setCity(CityEntity city) {
-		this.city = city;
-	}
+    public CityEntity getCity() {
+        return city;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setCity(CityEntity city) {
+        this.city = city;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

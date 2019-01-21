@@ -1,39 +1,41 @@
 package com.lance.activiti.common.captcha;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
+import com.google.code.kaptcha.Producer;
+import com.google.code.kaptcha.util.Config;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.google.code.kaptcha.Producer;
-import com.google.code.kaptcha.util.Config;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Properties;
 
 /**
  * 基本验证码
+ *
  * @author lance
  * @since 2016年11月5日下午11:01:25
  */
 public abstract class AbstractBaseKaptcha {
     private Producer kaptchaProducer = null;
     private String sessionKeyDateValue = null;
-    
+
     /**
      * 创建验证码属性配置
-     * @author lance
-     * @since 2016年11月5日下午11:00:55
-     * @see com.google.code.kaptcha.Constants
+     *
      * @return
+     * @author lance
+     * @see com.google.code.kaptcha.Constants
+     * @since 2016年11月5日下午11:00:55
      */
     public abstract Properties getProperties();
 
     /**
      * 初始化对象
+     *
      * @author lance
      * @since 2016年11月5日下午11:41:31
      */
@@ -46,6 +48,7 @@ public abstract class AbstractBaseKaptcha {
 
     /**
      * map it to the /url/captcha.jpg
+     *
      * @param req
      * @param resp
      * @throws ServletException
@@ -71,7 +74,7 @@ public abstract class AbstractBaseKaptcha {
         BufferedImage bi = this.kaptchaProducer.createImage(capText);
 
         ServletOutputStream out = resp.getOutputStream();
-        
+
         // write the data out
         ImageIO.write(bi, "jpg", out);
 

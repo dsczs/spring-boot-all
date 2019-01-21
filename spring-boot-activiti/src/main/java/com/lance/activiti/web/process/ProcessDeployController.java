@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/admin/process/deploy/")
 public class ProcessDeployController {
 
-	/**
-	 * 跳转列表页面
-	 * @return
-	 */
-	@RequestMapping(value="list", method=RequestMethod.GET)
-	public String list(){
-		return "admin/process/process-deploy-list.jsp";
-	}
+    /**
+     * 跳转列表页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public String list() {
+        return "admin/process/process-deploy-list.jsp";
+    }
 }

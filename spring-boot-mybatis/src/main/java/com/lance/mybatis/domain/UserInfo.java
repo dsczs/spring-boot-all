@@ -1,51 +1,51 @@
 package com.lance.mybatis.domain;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 public class UserInfo implements Serializable {
-	private static final long serialVersionUID = 6519997700281088880L;
-	
-	private int id;
-	
-	private String name;
-	
-	private String tel;
-	
-	@JSONField(format="yyyy-MM-dd")
-	private Date createTime;
+    private static final long serialVersionUID = 6519997700281088880L;
 
-	public int getId() {
-		return id;
-	}
+    private int id;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private String tel;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @JSONField(format = "yyyy-MM-dd")
+    private Date createTime;
 
-	public String getTel() {
-		return tel;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }

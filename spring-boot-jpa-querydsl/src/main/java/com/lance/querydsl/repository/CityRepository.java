@@ -1,9 +1,8 @@
 package com.lance.querydsl.repository;
 
+import com.lance.querydsl.entity.CityEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.lance.querydsl.entity.CityEntity;
-
-public interface CityRepository extends JpaRepository<CityEntity, Long>{
+public interface CityRepository extends JpaRepository<CityEntity, Long> {
 
 }

@@ -9,19 +9,19 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes=SimpleApplication.class)
+@SpringApplicationConfiguration(classes = SimpleApplication.class)
 public class EmailSenderTest {
-	private Logger logger = LogManager.getLogger(getClass());
-	@Autowired
-	private EmailSender emailSender;
+    private Logger logger = LogManager.getLogger(getClass());
+    @Autowired
+    private EmailSender emailSender;
 
-	@Test
-	public void sender() {
-		String to = "81222000@qq.com";
-		String subject = "Test subject";
-		String content = "Hello Spring boot Email.";
-		
-		boolean result = emailSender.sender(to, subject, content);
-		logger.info("-------------======---------------"+result);
-	}
+    @Test
+    public void sender() {
+        String to = "81222000@qq.com";
+        String subject = "Test subject";
+        String content = "Hello Spring boot Email.";
+
+        boolean result = emailSender.sender(to, subject, content);
+        logger.info("-------------======---------------" + result);
+    }
 }

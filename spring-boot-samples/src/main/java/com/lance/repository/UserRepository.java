@@ -1,17 +1,17 @@
 package com.lance.repository;
 
+import com.lance.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.lance.entity.UserEntity;
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-public interface UserRepository extends JpaRepository<UserEntity, Long>{
-	
-	/**
-	 * 根据userName查询
-	 * @author lance
-	 * 2014-6-11下午11:30:31
-	 * @param userName
-	 * @return
-	 */
-	UserEntity findByEmail(String email);
+    /**
+     * 根据userName查询
+     *
+     * @param userName
+     * @return
+     * @author lance
+     * 2014-6-11下午11:30:31
+     */
+    UserEntity findByEmail(String email);
 }

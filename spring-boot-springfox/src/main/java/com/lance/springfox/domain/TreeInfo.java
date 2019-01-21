@@ -1,38 +1,38 @@
 package com.lance.springfox.domain;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.swagger.annotations.ApiModelProperty;
+public class TreeInfo implements Serializable {
+    private static final long serialVersionUID = 1831917888568868859L;
 
-public class TreeInfo implements Serializable{
-	private static final long serialVersionUID = 1831917888568868859L;
-	
-	private int id;
-	
-	private String text;
-	
-	@ApiModelProperty(hidden = true)
-	private List<TreeInfo> children = new ArrayList<>();
+    private int id;
 
-	public int getId() {
-		return id;
-	}
+    private String text;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @ApiModelProperty(hidden = true)
+    private List<TreeInfo> children = new ArrayList<>();
 
-	public String getText() {
-		return text;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public List<TreeInfo> getChildren() {
-		return children;
-	}
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public List<TreeInfo> getChildren() {
+        return children;
+    }
 }

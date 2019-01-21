@@ -1,9 +1,8 @@
 package com.lance.hibernate.repository;
 
+import com.lance.hibernate.entity.HotelEntity;
 import org.springframework.data.repository.Repository;
 
-import com.lance.hibernate.entity.HotelEntity;
-
-public interface HotelRepository extends Repository<HotelEntity, Long>{
+public interface HotelRepository extends Repository<HotelEntity, Long> {
 
 }

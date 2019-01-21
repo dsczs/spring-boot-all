@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 @Component("consumerListener")
-public class ConsumerListener{
-	Logger log = LogManager.getLogger(getClass());
-	
-	public void handleMessage(String message) {
-		log.info("TextMessage: {}", message);
-	}
+public class ConsumerListener {
+    Logger log = LogManager.getLogger(getClass());
+
+    public void handleMessage(String message) {
+        log.info("TextMessage: {}", message);
+    }
 }

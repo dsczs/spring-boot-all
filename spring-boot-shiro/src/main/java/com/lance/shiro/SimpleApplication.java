@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.lance.shiro.mapper")
 public class SimpleApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SimpleApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SimpleApplication.class, args);
+    }
 }

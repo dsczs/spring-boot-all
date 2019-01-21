@@ -10,15 +10,15 @@ import org.springframework.jms.annotation.EnableJms;
 @SpringBootApplication
 @EnableJms
 public class SimpleApplication {
-	static Logger logger = LogManager.getLogger();
+    static Logger logger = LogManager.getLogger();
 
-	public static void main(String[] args) {
-		ConfigurableApplicationContext content = SpringApplication.run(SimpleApplication.class, args);
-		
-		//Test Bean
-		String[]beanNames = content.getBeanDefinitionNames();
-		for(String name: beanNames) {
-			logger.info("beanName: {}", name);
-		}
-	}
+    public static void main(String[] args) {
+        ConfigurableApplicationContext content = SpringApplication.run(SimpleApplication.class, args);
+
+        //Test Bean
+        String[] beanNames = content.getBeanDefinitionNames();
+        for (String name : beanNames) {
+            logger.info("beanName: {}", name);
+        }
+    }
 }

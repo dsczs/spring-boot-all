@@ -1,19 +1,19 @@
 package com.lance.activiti.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class FileExtUtils {
-	private static Logger logger = LogManager.getLogger(FileExtUtils.class);
-	
-	public static String exportDiagramToFile(RepositoryService repositoryService, ProcessDefinition processDefinition, String exportDir) throws IOException {
+    private static Logger logger = LogManager.getLogger(FileExtUtils.class);
+
+    public static String exportDiagramToFile(RepositoryService repositoryService, ProcessDefinition processDefinition, String exportDir) throws IOException {
         String diagramResourceName = processDefinition.getDiagramResourceName();
         String key = processDefinition.getKey();
         int version = processDefinition.getVersion();

@@ -1,8 +1,8 @@
 package com.lance.activiti.common.shiro;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-
+import com.lance.activiti.model.system.UserInfo;
+import com.lance.activiti.service.user.UserService;
+import com.lance.activiti.utils.ShiroSessionUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -12,27 +12,30 @@ import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.lance.activiti.model.system.UserInfo;
-import com.lance.activiti.service.user.UserService;
-import com.lance.activiti.utils.ShiroSessionUtils;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 
 public class FormAuthenticationFilterExt extends FormAuthenticationFilter {
     @Autowired
     private UserService userService;
-    /**adminValidCode*/
+    /**
+     * adminValidCode
+     */
     public static final String DEFAULT_CAPTCHA_PARAM = "captcha";
-    /**LoginMessage*/
+    /**
+     * LoginMessage
+     */
     public static final String DEFAULT_MESSAGE_PARAM = "message";
-    
+
     private String captchaParam = DEFAULT_CAPTCHA_PARAM;
     private String messageParam = DEFAULT_MESSAGE_PARAM;
-    
-    
+
+
     @Override
     protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
         String username = getUsername(request);
         String password = getPassword(request);
-        if (password==null){
+        if (password == null) {
             password = "";
         }
         boolean rememberMe = isRememberMe(request);
@@ -40,14 +43,14 @@ public class FormAuthenticationFilterExt extends FormAuthenticationFilter {
         String captcha = getCaptcha(request);
         return new UsernamePasswordCaptchaToken(username, password.toCharArray(), rememberMe, host, captcha);
     }
-    
+
     @Override
     protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
         String className = e.getClass().getName(), message = "";
-        if (IncorrectCredentialsException.class.getName().equals(className) 
-                        || UnknownAccountException.class.getName().equals(className)){
+        if (IncorrectCredentialsException.class.getName().equals(className)
+                || UnknownAccountException.class.getName().equals(className)) {
             message = "用户或密码错误, 请重试.";
-        }else {
+        } else {
             message = e.getMessage();
         }
         request.setAttribute(getFailureKeyAttribute(), className);

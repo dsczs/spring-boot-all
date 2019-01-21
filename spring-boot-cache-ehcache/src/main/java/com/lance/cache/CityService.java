@@ -7,13 +7,13 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 @Component
-@CacheConfig(cacheNames="CityService")
+@CacheConfig(cacheNames = "CityService")
 public class CityService {
-	Logger logger = LogManager.getLogger(getClass());
+    Logger logger = LogManager.getLogger(getClass());
 
-	@Cacheable
-	public CityInfo getCity(int id, String city) {
-		logger.info("id: {}, city: {}", id, city);
-		return new CityInfo(id, city);
-	}
+    @Cacheable
+    public CityInfo getCity(int id, String city) {
+        logger.info("id: {}, city: {}", id, city);
+        return new CityInfo(id, city);
+    }
 }

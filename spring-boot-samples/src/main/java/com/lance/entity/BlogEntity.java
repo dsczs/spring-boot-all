@@ -7,66 +7,66 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="blog")
+@Table(name = "blog")
 public class BlogEntity extends BaseEntity {
-	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private UserEntity blongUser;
-	
-	private String title;
-	private String description;
-	private String summary;
-	private String tags;
-	
-	@Lob
-	private String content;
 
-	public UserEntity getBlongUser() {
-		return blongUser;
-	}
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity blongUser;
 
-	public void setBlongUser(UserEntity blongUser) {
-		this.blongUser = blongUser;
-	}
+    private String title;
+    private String description;
+    private String summary;
+    private String tags;
 
-	public String getTitle() {
-		return title;
-	}
+    @Lob
+    private String content;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public UserEntity getBlongUser() {
+        return blongUser;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setBlongUser(UserEntity blongUser) {
+        this.blongUser = blongUser;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getSummary() {
-		return summary;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setSummary(String summary) {
-		this.summary = summary;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public String getTags() {
-		return tags;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setTags(String tags) {
-		this.tags = tags;
-	}
+    public String getSummary() {
+        return summary;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

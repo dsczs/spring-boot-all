@@ -9,11 +9,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class WorkflowProcessDefinitionServiceTest {
-	@Autowired
-	private WorkflowProcessDefinitionService workflowProcessDefinitionService;
-	
-	@Test
-	public void deploy() {
-		workflowProcessDefinitionService.deployFromClasspath("MyProcess");
-	}
+    @Autowired
+    private WorkflowProcessDefinitionService workflowProcessDefinitionService;
+
+    @Test
+    public void deploy() {
+        workflowProcessDefinitionService.deployFromClasspath("MyProcess");
+    }
 }
